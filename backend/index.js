@@ -21,10 +21,13 @@ const app = express();
  * Query Params : Parâmetros nomeados enviados na rota após "?" (Filtros, paginação)
  *   http://localhost:3333/users?name=Vagner
  *   http://localhost:3333/users?page=2&name=Vagner&age=26
+ * Route Params : Parâmetros utilizados para identificar recursos 
+ *   http://localhost:3333/users/2
+ * Request Body : 
  */
 
-app.get('/users', (request, response) => {
-    const params =request.query;
+app.get('/users/:id', (request, response) => {
+    const params = request.params;
     console.log(params);
 
     return response.json({
